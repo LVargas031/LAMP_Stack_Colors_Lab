@@ -1,0 +1,48 @@
+@startuml
+skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+
+package "Client Browser" {
+    class "index.html / color.html" as HTML <<Boundary>>
+    class "code.js" as JS <<Control>> {
+        +userId: int
+        +doLogin()
+        +addColor()
+        +searchColor()
+        +saveCookie()
+    }
+}
+
+package "Web Server (LAMPAPI)" {
+    class "Login.php" as LoginAPI <<Entity>>
+    class "AddColor.php" as AddColorAPI <<Entity>>
+    class "SearchColors.php" as SearchAPI <<Entity>>
+}
+
+database "MySQL (COP4331)" {
+    entity Users {
+        * ID
+        --
+        Login
+        Password
+        FirstName
+        LastName
+    }
+    entity Colors {
+        * ID
+        --
+        UserID <<FK>>
+        Name
+    }
+}
+
+' Control Flow
+HTML -> JS : Triggers Event (onclick)
+JS -> LoginAPI : XMLHttpRequest (JSON)
+JS -> AddColorAPI : XMLHttpRequest (JSON)
+JS -> SearchAPI : XMLHttpRequest (JSON)
+
+LoginAPI --> Users : Queries
+AddColorAPI --> Colors : Inserts
+SearchAPI --> Colors : Queries
+@enduml

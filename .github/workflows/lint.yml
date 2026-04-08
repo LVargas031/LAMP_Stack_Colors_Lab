@@ -27,6 +27,9 @@ jobs:
       - name: Run HTML linter
         run: npx htmlhint .
 
+      - name: Fix CSS Linter Permissions
+        run: chmod +x ./node_modules/.bin/stylelint
+
       - name: Run CSS linter
         run: npm run lint:css
 

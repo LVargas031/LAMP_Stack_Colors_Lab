@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Run HTML linter
-        run: npx --yes htmlhint@latest .
+        run: npx --yes --package=htmlhint htmlhint .
 
       - name: Run CSS linter
         run: npx --yes stylelint "**/*.css"

@@ -5,15 +5,17 @@ export default [
   js.configs.recommended,
   {
     languageOptions: {
-      // This replaces the old "env: { browser: true, node: true }"
+      // globals.browser includes things like 'window' and 'document'
+      // globals.node includes things like 'process' or 'require'
       globals: {
         ...globals.browser,
         ...globals.node,
       },
     },
     rules: {
-      // Your custom rules here
+      // You can add or override rules here
       "no-unused-vars": "warn",
+      "no-undef": "error",
     },
   },
 ];

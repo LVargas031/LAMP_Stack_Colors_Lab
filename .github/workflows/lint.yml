@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: 18
 
       - name: Install dependencies
         run: npm install
@@ -27,7 +27,7 @@ jobs:
         run: htmlhint .
 
       - name: Run CSS linter
-        run: npm run lint:css
+        run: npx stylelint "**/*.css"
 
       - name: Run JS linter
-        run: npm run lint:js
+        run: npx eslint .

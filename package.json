@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/LVargas031/LAMP_Stack_Colors_Lab#readme",
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
     "eslint": "^10.2.0",
     "htmlhint": "^1.9.2",
     "stylelint": "^17.6.0",

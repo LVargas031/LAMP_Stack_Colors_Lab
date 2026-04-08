@@ -20,14 +20,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install HTMLHint globally
-        run: npm install -g htmlhint
+      - name: Install global linters
+        run: |
+          npm install -g htmlhint
+          npm install -g stylelint stylelint-config-standard
+          npm install -g eslint
 
       - name: Run HTML linter
         run: htmlhint .
 
       - name: Run CSS linter
-        run: npx stylelint "**/*.css"
+        run: stylelint "**/*.css"
 
       - name: Run JS linter
-        run: npx eslint .
+        run: eslint .

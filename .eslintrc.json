@@ -4,5 +4,9 @@
     "es2021": true
   },
   "extends": "eslint:recommended",
-  "rules": {}
+  "rules": {
+    "no-unused-vars": "warn",
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"]
+  }
 }

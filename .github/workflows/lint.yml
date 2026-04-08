@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -20,17 +20,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install global linters
-        run: |
-          npm install -g htmlhint
-          npm install -g stylelint stylelint-config-standard
-          npm install -g eslint
-
       - name: Run HTML linter
-        run: htmlhint .
+        run: npm run lint:html
 
       - name: Run CSS linter
-        run: stylelint '**/*.css'
+        run: npm run lint:css
 
       - name: Run JS linter
-        run: eslint .
+        run: npm run lint:js

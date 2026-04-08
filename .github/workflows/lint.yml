@@ -21,10 +21,10 @@ jobs:
         run: npm install
 
       - name: Run HTML linter
-        run: ./node_modules/.bin/htmlhint .
+        run: npm run lint:html
 
       - name: Run CSS linter
-        run: ./node_modules/.bin/stylelint "**/*.css"
+        run: npm run lint:css
 
       - name: Run JS linter
-        run: ./node_modules/.bin/eslint .
+        run: npm run lint:js

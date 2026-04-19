@@ -32,3 +32,5 @@ jobs:
 
       - name: Run JS linter
         run: npm run lint:js
+      - name: Run Automated Tests
+        run: npm test

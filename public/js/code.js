@@ -154,5 +154,21 @@ function searchColor() {
     catch (err) {
         document.getElementById("colorSearchResult").innerHTML = err.message;
     }
+}
 
+if (typeof module !== 'undefined') {
+    module.exports = {
+        doLogin,
+        addColor,
+        saveCookie,
+        searchColor,
+        readCookie,
+        doLogout,
+        // Add these variables to the exports
+        setUserData: (id, first, last) => {
+            userId = id;
+            firstName = first;
+            lastName = last;
+        }
+    };
 }

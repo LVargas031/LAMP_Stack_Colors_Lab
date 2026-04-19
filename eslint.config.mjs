@@ -5,15 +5,26 @@ export default [
   js.configs.recommended,
   {
     languageOptions: {
-      // globals.browser includes things like 'window' and 'document'
-      // globals.node includes things like 'process' or 'require'
       globals: {
         ...globals.browser,
         ...globals.node,
+        // If ...globals.jest fails, use these explicit definitions:
+        describe: "readonly",
+        test: "readonly",
+        expect: "readonly",
+        jest: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        // Project specific globals
+        doLogin: "writable",
+        readCookie: "writable",
+        doLogout: "writable",
+        addColor: "writable",
+        searchColor: "writable",
+        setUserData: "writable"
       },
     },
     rules: {
-      // You can add or override rules here
       "no-unused-vars": "warn",
       "no-undef": "error",
     },
